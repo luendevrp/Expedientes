@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 /Test-win32-x64
+/out
 
 # Node
 /node_modules
@@ -41,3 +42,13 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#Api
+/api/* 
+!api/.gitkeep
+!api/jre
+/api/jre/*
+!api/jre/.gitkeep
+
+/src/environments/environment.prod.ts
+/src/environments/environment.ts

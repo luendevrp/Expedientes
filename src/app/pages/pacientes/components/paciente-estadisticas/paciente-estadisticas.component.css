@@ -1,0 +1,215 @@
+/* Main Container */
+.Formulario {
+    width: 95%;
+    max-width: 1800px;
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
+
+.header-section {
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.header-section h2 {
+    color: #185eaf;
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Card-like Section Styling (Charts & Filter) */
+.seccion,
+.chart-card,
+.filter-section,
+.summary-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Specific adjustments for Filter Section */
+.filter-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.filter-section button {
+    height: 56px;
+    /* margin-bottom: 22px; */
+    /* Removed to align better in row */
+}
+
+.pdf-button {
+    margin-left: auto;
+}
+
+/* Summary Cards specific layout */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.summary-card {
+    flex-direction: row;
+    /* Horizontal layout for summary info */
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-box mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.icon-box.blue {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.icon-box.green {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.summary-info h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #757575;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.summary-info .count {
+    margin: 5px 0 0 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Charts Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    /* Increased min-width for better chart visibility */
+    gap: 24px;
+}
+
+.chart-card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #185eaf;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-bottom: 2px solid #e3f2fd;
+    padding-bottom: 8px;
+}
+
+/* Custom Bar Chart Styles */
+.bar-chart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* The original instruction had a {{ ... }} here, which is not valid CSS.
+   Assuming it was a placeholder for more bar-chart-list styles or a typo,
+   I'm removing it to ensure valid CSS. If there were specific styles intended,
+   they should be provided explicitly. */
+
+
+.bar-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #546e7a;
+    font-weight: 500;
+}
+
+.bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: #f1f3f4;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #185eaf 0%, #42a5f5 100%);
+    /* Use system blue gradient */
+    border-radius: 6px;
+}
+
+.empty-state {
+    text-align: center;
+    color: #999;
+    /* The original instruction had a {{ ... }} here, which is not valid CSS.
+   Assuming it was a placeholder for more empty-state styles or a typo,
+   I'm removing it to ensure valid CSS. If there were specific styles intended,
+   they should be provided explicitly. */
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.error-container {
+    text-align: center;
+    color: #f44336;
+    padding: 20px;
+    background: #ffebee;
+    border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-section button {
+        width: 100%;
+    }
+}

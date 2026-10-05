@@ -1,0 +1,42 @@
+<div class="container">
+    <section class="left-section">
+
+        <div class="logo-container">
+            <!-- <img class="logo" src="assets/img/logo.png" /> -->
+            <label class="logo-title">Universidad Veracruzana</label>
+        </div>
+    </section>
+
+
+    <section class="right-section" [ngClass]="isDarkTheme ? 'dark-primary' : 'light-primary'">
+
+        <mat-slide-toggle (change)="toggleDarkTheme($event.checked)" [checked]="isDarkTheme"
+            class="theme-toggle-container">
+            <mat-icon class="theme-toggle" [ngClass]="isDarkTheme ? 'dark' : 'light'">
+                dark_mode
+            </mat-icon>
+        </mat-slide-toggle>
+
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="login-form" [ngClass]="isDarkTheme ? 'dark-secondary' : 'light-secondary'">
+            <h1 class="login-title" >Inicio de sesión</h1>
+
+            <div *ngIf="errorMessage" class="error-container">
+                <mat-icon>error_outline</mat-icon>
+                <span class="error-message">{{ errorMessage }}</span>
+            </div>
+
+            <mat-form-field class="form-field">
+                <mat-label>Nombre de usuario</mat-label>
+                <input matInput [(ngModel)]="loginData.username" name="username" required>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Ingresa la contraseña</mat-label>
+                <input matInput [(ngModel)]="loginData.password" name="password" type="password" required>
+                
+            </mat-form-field>
+
+            <button type="submit" mat-flat-button color="accent" [disabled]="loginForm.invalid">Iniciar sesión</button>
+        </form>
+    </section>
+</div>

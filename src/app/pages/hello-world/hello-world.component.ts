@@ -22,14 +22,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
   ],
   templateUrl: './hello-world.component.html',
   styleUrls: ['./hello-world.component.css']
 })
 export class HelloWorldComponent {
   title = 'Angular Material Theme Test';
-  
+
   // Definir el formulario reactivo
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),

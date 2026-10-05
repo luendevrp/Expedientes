@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Verifica la Información del usuario</h2>
+
+<mat-dialog-content>
+    <h3>Información del usuario</h3>
+    <table>
+        <tr>
+            <td><strong>Nombre:</strong></td>
+            <td>{{usuario.username}}</td>
+        </tr>
+        <tr>
+            <td><strong>Teléfono:</strong></td>
+            <td>{{usuario.telefono}}</td>
+        </tr>
+        <tr>
+            <td><strong>Facultad:</strong></td>
+            <td>{{usuario.facultad}}</td>
+        </tr>
+        <tr>
+            <td><strong>Rol:</strong></td>
+            <td>{{usuario.rolId}}</td>
+        </tr>
+        <tr>
+            <td><strong>CURP:</strong></td>
+            <td>{{usuario.curp}}</td>
+        </tr>
+        <tr>
+            <td><strong>RFC:</strong></td>
+            <td>{{usuario.rfc}}</td>
+        </tr>
+        <tr *ngIf="usuario.cedulaProfesional">
+            <td><strong>Cédula:</strong></td>
+            <td>{{usuario.cedulaProfesional}}</td>
+        </tr>
+        <tr *ngIf="usuario.especialidad">
+            <td><strong>Especialidad:</strong></td>
+            <td>{{usuario.especialidad}}</td>
+        </tr>
+        <tr *ngIf="usuario.password">
+            <td><strong>Contraseña:</strong></td>
+            <td>{{usuario.password}}</td>
+        </tr>
+        <tr>
+            <td><strong>Pasante:</strong></td>
+            <td>{{usuario.pasante ? 'Sí' : 'No'}}</td>
+        </tr>
+    </table>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close (click)="cancelar()" style="color: gray;">Cancelar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="confirmar()" color="accent">Editar
+        usuario</button>
+</mat-dialog-actions>

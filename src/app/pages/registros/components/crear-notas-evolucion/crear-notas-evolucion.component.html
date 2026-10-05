@@ -1,0 +1,156 @@
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="false" autosize>
+    <mat-sidenav class="sidenav-data" #sidenav mode="side" position="end" opened="false"
+        [style.width.px]="sidenavWidth">
+        <div class="resize-handle" (mousedown)="startResize($event)"></div>
+        <div class="sidenav-content-wrapper">
+            <h1>Información del paciente</h1>
+            <app-paciente-data [isSidenav]="true"></app-paciente-data>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="Formulario">
+            <!-- <div class="header-section">
+                <h2>Nota de Evolución</h2>
+            </div> -->
+
+            <mat-tab-group animationDuration="0s" color="accent">
+
+                <!-- Interrogatorio y exploracion -->
+                <mat-tab label="Interrogatorio y exploracion">
+                    <form [formGroup]="notaForm" class="seccion">
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Motivos de consulta</mat-label>
+                            <textarea matInput formControlName="motivo_consulta"></textarea>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Interrogatorio</mat-label>
+                            <textarea matInput formControlName="interrogatorio"></textarea>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Padecimiento actual</mat-label>
+                            <textarea matInput formControlName="padecimiento_actual"></textarea>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Exploracion fisica</mat-label>
+                            <textarea matInput formControlName="exploracion_fisica"></textarea>
+                        </mat-form-field>
+
+                    </form>
+                </mat-tab>
+
+                <!-- Signos vitales -->
+                <mat-tab label="Signos vitales">
+                    <form [formGroup]="notaForm" class="seccion">
+                        <div class="grid-2-col">
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Peso</mat-label>
+                                <input matInput type="number" formControlName="peso">
+                            </mat-form-field>
+
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Talla</mat-label>
+                                <input matInput type="number" formControlName="talla">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="grid-2-col">
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>IMC</mat-label>
+                                <input matInput type="number" formControlName="imc">
+                            </mat-form-field>
+
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Tensión arterial</mat-label>
+                                <textarea matInput formControlName="tension_arterial"></textarea>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="grid-2-col">
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Frecuencia cardiaca</mat-label>
+                                <input matInput type="number" formControlName="frecuencia_cardiaca">
+                            </mat-form-field>
+
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Frecuencia respiratoria</mat-label>
+                                <input matInput type="number" formControlName="frecuencia_respiratoria">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="grid-2-col">
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Temperatura</mat-label>
+                                <input matInput type="number" formControlName="temperatura">
+                            </mat-form-field>
+
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Saturación</mat-label>
+                                <input matInput type="number" formControlName="saturacion">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="grid-2-col">
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Glicemia</mat-label>
+                                <input matInput type="number" formControlName="glicemia">
+                            </mat-form-field>
+
+                            <mat-form-field class="form-field" color="accent">
+                                <mat-label>Hemoglobina</mat-label>
+                                <input matInput type="number" formControlName="hemoglobina">
+                            </mat-form-field>
+                        </div>
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Hemotipo</mat-label>
+                            <input matInput type="text" formControlName="hemotipo">
+                        </mat-form-field>
+                    </form>
+                </mat-tab>
+
+
+                <!-- Diagnostico y medicaciones -->
+                <mat-tab label="Diagnostico y medicaciones">
+                    <form [formGroup]="notaForm" class="seccion">
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Diagnostico</mat-label>
+                            <textarea matInput formControlName="diagnostico"></textarea>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Tratamiento</mat-label>
+                            <textarea matInput formControlName="tratamiento"></textarea>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Plan tratamiento</mat-label>
+                            <textarea matInput formControlName="plan_tratamiento"></textarea>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field" color="accent">
+                            <mat-label>Observaciones</mat-label>
+                            <textarea matInput formControlName="observaciones"></textarea>
+                        </mat-form-field>
+
+                    </form>
+                </mat-tab>
+
+            </mat-tab-group>
+        </div>
+
+
+        <div class="form-actions">
+            <button mat-raised-button routerLink="/layout/pacientes" color="warn">Cancelar</button>
+            <button mat-raised-button color="accent" (click)="onSave()">Guardar nota de evolución</button>
+            <button mat-raised-button color="primary" (click)="toggleSidenav(sidenav)">
+                {{ sidenav.opened ? 'Ocultar' : 'Mostrar' }} Información del Paciente
+            </button>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
